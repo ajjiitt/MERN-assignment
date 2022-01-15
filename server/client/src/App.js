@@ -2,8 +2,8 @@ import Home from "./Components/home";
 import Login from "./Components/login";
 import Form from "./Components/form";
 import { Routes, Route, Link } from "react-router-dom";
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 function App() {
   return (
     <div className="App">

@@ -21,7 +21,7 @@ const Form = () => {
       toast("Enter valid values for user.");
       return;
     }
-    await fetch("http://localhost:8181/createuser", {
+    await fetch("/createuser", {
       method: "post",
       headers: {
         "Content-Type": "application/json",
@@ -58,7 +58,7 @@ const Form = () => {
           className="col-md-6 my-4"
           style={{
             border: "1px solid black",
-            borderRadius: "3px"
+            borderRadius: "3px",
           }}
         >
           <div className="mb-3">
