@@ -1,17 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Home = () => {
-  const [users, setUsers] = useState([
-    {
-      address: "IN",
-      email: "c@c.com",
-      mobile: "1231231231",
-      username: "c",
-      __v: 0,
-      _id: "61e2fd2785a42878c2c4b85e",
-    },
-  ]);
+  let arr = [];
   const navigate = useNavigate();
   const token = localStorage.getItem("jwt");
   const CheckToken = () => {
@@ -32,8 +23,7 @@ const Home = () => {
         console.log(data);
         if (data.success) {
           //toast popup
-          setUsers(data.users);
-          console.log(users);
+          arr = data.users;
         } else if (data.auth) {
           navigate("/login");
         } else {

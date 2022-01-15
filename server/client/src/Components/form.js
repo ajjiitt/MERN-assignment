@@ -36,50 +36,77 @@ const Form = () => {
       });
   };
   return (
-    <div>
-      <div className="mb-3">
-        <label className="form-label">Email address</label>
-        <input
-          type="email"
-          className="form-control"
-          id="exampleInputEmail1"
-          aria-describedby="emailHelp"
-          placeholder="Enter Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
+    <div className="container">
+      <div className="row">
+      <div className="col col-md-3">
       </div>
-      <div className="mb-3">
-        <label class="form-label">Username</label>
-        <input
-          type="text"
-          className="form-control"
-          id="exampleInputPassword1"
-          placeholder="Enter Username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-        />
-        <label class="form-label">Mobile Number</label>
-        <input
-          type="text"
-          className="form-control"
-          id="exampleInputPassword1"
-          placeholder="Enter Mobile"
-          value={mobile}
-          onChange={(e) => setMobile(e.target.value)}
-        />
-        <label class="form-label">Address</label>
-        <input
-          type="text"
-          className="form-control"
-          id="exampleInputPassword1"
-          placeholder="Enter Address"
-          value={address}
-          onChange={(e) => setAddress(e.target.value)}
-        />
-        <button type="submit" className="btn btn-primary" onClick={createUser}>
-          Submit
-        </button>
+        {/* <div
+          className="card d-flex flex-column col-md-6"
+          style={{ width: "400px", maxWidth: "400px" }}
+        > */}
+          <div
+          className="col-md-6 my-4"
+            style={{
+            border:"1px solid black",borderRadius:"3px"
+            //   maxWidth: "300px",
+            //   width: "300px",
+            //   justifyContent: "center",
+            //   alignItems: "center",
+            }}
+          >
+            <div className="mb-3">
+              <label className="form-label my-2">Email address</label>
+              <input
+                type="email"
+                className="form-control my-2"
+                id="exampleInputEmail1"
+                aria-describedby="emailHelp"
+                placeholder="Enter Email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </div>
+            <div className="mb-3">
+              <label className="form-label">Username</label>
+              <input
+                type="text"
+                className="form-control my-2"
+                id="exampleInputPassword1"
+                placeholder="Enter Username"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+              />
+              <label className="form-label">Mobile Number</label>
+              <input
+                type="text"
+                className="form-control my-2"
+                id="exampleInputPassword1"
+                placeholder="Enter Mobile"
+                value={mobile}
+                onChange={(e) => setMobile(e.target.value)}
+              />
+              <label className="form-label">Address</label>
+              <input
+                type="text"
+                className="form-control my-2"
+                id="exampleInputPassword1"
+                placeholder="Enter Address"
+                value={address}
+                onChange={(e) => setAddress(e.target.value)}
+              />
+              <button
+                type="submit"
+                className="btn btn-primary my-2"
+                onClick={createUser}
+                style={{width:"100%"}}
+              >
+                Submit
+              </button>
+            </div>
+          </div>
+        {/* </div> */}
+        <div className="col col-md-3">
+      </div>
       </div>
     </div>
   );

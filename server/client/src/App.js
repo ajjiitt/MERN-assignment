@@ -8,9 +8,18 @@ function App() {
     <div className="App">
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <div className="container-fluid">
-          <a className="navbar-brand">
-            Ajit
-          </a>
+          <a className="navbar-brand">Ajit</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav">
               <li className="nav-item">
@@ -27,6 +36,7 @@ function App() {
           </div>
         </div>
       </nav>
+      {/* navbar ends */}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="form" element={<Form />} />
