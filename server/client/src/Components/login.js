@@ -1,9 +1,13 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
+  const loginerr = () => toast("Email or password doesn't match");
+  const loginSuccess = () => toast("Admin logged in successfully");
   const loginAdmin = async () => {
     await fetch("http://localhost:8181/signin", {
       method: "post",
@@ -16,9 +20,11 @@ const Login = () => {
       .then((data) => {
         if (data.success) {
           localStorage.setItem("jwt", data.token);
+          loginSuccess()
           navigate("/");
           //toast popup
         } else {
+          loginerr()
           setEmail("");
           setPassword("");
           //toast popup
@@ -33,18 +39,10 @@ const Login = () => {
       <div className="row">
       <div className="col col-md-3">
       </div>
-        {/* <div
-          className="card d-flex flex-column col-md-6"
-          style={{ width: "400px", maxWidth: "400px" }}
-        > */}
           <div
           className="col-md-6 my-4"
             style={{
             border:"1px solid black",borderRadius:"3px"
-            //   maxWidth: "300px",
-            //   width: "300px",
-            //   justifyContent: "center",
-            //   alignItems: "center",
             }}
           >
       <h2 className="form-label my-1"style={{textAlign:"center"}}>LOGIN</h2>

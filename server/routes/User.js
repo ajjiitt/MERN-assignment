@@ -51,12 +51,12 @@ router.get("/alluser", requireLogin, (req, res) => {
 router.delete("/deleteuser/:username", requireLogin, (req, res) => {
   User.findOne({ username: req.params.username }).exec((err, user) => {
     if (err || !user) {
-      return res.status(422).json({ error: err });
+      return res.status(422).json({ error: err, success: false });
     }
     user
       .remove()
       .then((result) => {
-        return res.json(result);
+        return res.json({ result, success: true });
       })
       .catch((err) => {
         console.log(err);
