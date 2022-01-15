@@ -5,7 +5,6 @@ const morgan = require("morgan");
 require("dotenv").config();
 
 require("./db.js");
-// require("./models/user.js");
 
 const port = process.env.PORT || 5000;
 

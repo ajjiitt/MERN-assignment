@@ -12,7 +12,7 @@ router.post("/createuser", requireLogin, (req, res) => {
   }
   User.findOne({ username })
     .then((u) => {
-      console.log(u)
+      console.log(u);
       if (!u) {
         const user = new User({
           username,
@@ -23,25 +23,25 @@ router.post("/createuser", requireLogin, (req, res) => {
         user
           .save()
           .then((result) => {
-            return res.json({ user: result });
+            return res.json({ user: result, success: true });
           })
           .catch((err) => {
             console.log(err);
-            return res.json({ error: "user already exist" });
+            return res.json({ error: "user already exist", success: false });
           });
-      }else{
-        return res.json({ error: "user already exist" });
+      } else {
+        return res.json({ error: "user already exist", success: false });
       }
     })
     .catch(() => {
-      return res.json({ error: "user already exist" });
+      return res.json({ error: "user already exist", success: false });
     });
 });
 
 router.get("/alluser", requireLogin, (req, res) => {
   User.find()
     .then((users) => {
-      res.json({ users });
+      res.json({ users, success: true });
     })
     .catch((error) => {
       console.log("error allpost route");
@@ -56,12 +56,16 @@ router.delete("/deleteuser/:username", requireLogin, (req, res) => {
     user
       .remove()
       .then((result) => {
-        res.json(result);
+        return res.json(result);
       })
       .catch((err) => {
         console.log(err);
       });
   });
+});
+
+router.get("/auth/admin", requireLogin, (req, res) => {
+  return res.json({ success: true });
 });
 
 module.exports = router;
