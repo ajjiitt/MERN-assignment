@@ -12,6 +12,15 @@ const Form = () => {
   const createUnsuccess = () => toast("Error while creating user");
   const unauth = () => toast("Session expired");
   const createUser = async () => {
+    if (
+      email.length >= 4 &&
+      username.length >= 4 &&
+      mobile.length != 10 &&
+      address.length >= 5
+    ) {
+      toast("Enter valid values for user.");
+      return;
+    }
     await fetch("http://localhost:8181/createuser", {
       method: "post",
       headers: {
@@ -45,19 +54,11 @@ const Form = () => {
     <div className="container">
       <div className="row">
         <div className="col col-md-3"></div>
-        {/* <div
-          className="card d-flex flex-column col-md-6"
-          style={{ width: "400px", maxWidth: "400px" }}
-        > */}
         <div
           className="col-md-6 my-4"
           style={{
             border: "1px solid black",
-            borderRadius: "3px",
-            //   maxWidth: "300px",
-            //   width: "300px",
-            //   justifyContent: "center",
-            //   alignItems: "center",
+            borderRadius: "3px"
           }}
         >
           <div className="mb-3">
@@ -110,7 +111,6 @@ const Form = () => {
             </button>
           </div>
         </div>
-        {/* </div> */}
         <div className="col col-md-3"></div>
       </div>
     </div>
