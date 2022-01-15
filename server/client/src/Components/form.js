@@ -21,7 +21,7 @@ const Form = () => {
       toast("Enter valid values for user.");
       return;
     }
-    await fetch("/createuser", {
+    await fetch("https://ajitmernproject.herokuapp.com/createuser", {
       method: "post",
       headers: {
         "Content-Type": "application/json",

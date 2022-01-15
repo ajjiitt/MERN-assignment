@@ -18,7 +18,7 @@ const Home = () => {
   };
   let i = 0;
   const GetAllUser = async () => {
-    await fetch("/alluser", {
+    await fetch("https://ajitmernproject.herokuapp.com/alluser", {
       method: "get",
       headers: {
         "Content-Type": "application/json",
@@ -44,7 +44,7 @@ const Home = () => {
   };
   //http://localhost:6000/deleteuser/ajit
   const deleteUser = async (username) => {
-    await fetch(`/deleteuser/${username}`, {
+    await fetch(`https://ajitmernproject.herokuapp.com/deleteuser/${username}`, {
       method: "delete",
       headers: {
         "Content-Type": "application/json",

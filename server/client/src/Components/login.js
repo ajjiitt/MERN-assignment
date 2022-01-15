@@ -9,7 +9,7 @@ const Login = () => {
   const loginerr = () => toast("Email or password doesn't match");
   const loginSuccess = () => toast("Admin logged in successfully");
   const loginAdmin = async () => {
-    await fetch("/signin", {
+    await fetch("https://ajitmernproject.herokuapp.com/signin", {
       method: "post",
       headers: {
         "Content-Type": "application/json",
